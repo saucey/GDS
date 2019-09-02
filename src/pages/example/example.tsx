@@ -1,30 +1,30 @@
-import * as React from 'react';
-import TopNav from '@govuk-react/top-nav';
-import Footer from '@govuk-react/footer';
+import React from 'react'
+import { useSelector } from 'react-redux'
+import { createSelector } from 'reselect'
+import AppWrapper from '../../hocs/app-wrapper'
 
+// import { createSelector } from 'reselect'
+// const TodoListItem = () => {
+//     const thisState = useSelector(state => state);
+//     console.log(thisState, 'this is the ststae')
+//     return (<p>To do list item</p>);
+// }
 
-export class Example extends React.Component {
-
-    constructor(props: any) {
-        super(props);
-
-        this.state = {
-
-        };
-
-        // console.log(this.props, 'the props')
-    }
-
-    render() {
-        return (
-            <div>
-                <TopNav></TopNav>
-                <h1>Example page</h1>
-                <Footer></Footer>
-            </div>
-        );
-    }
+interface ExampleProps {
+    isSet: string
 }
 
-export default Example;
+const ExampleScreen = () => {
+    const select = useSelector((state: any) => state);
 
+    console.log(select.exampleContainer.isSet, 'the redux state')
+
+    return (
+        <div>
+            <span>Number of done todos:</span>
+        </div>
+    )
+}
+
+const Example = AppWrapper(ExampleScreen)
+export { Example };
