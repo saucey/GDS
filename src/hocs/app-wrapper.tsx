@@ -4,7 +4,6 @@ import Footer from '@govuk-react/footer';
 
 const AppWrapper = (WrappedComponent: React.FunctionComponent) => {
     return (props: any) => {
-
         return (
             <div>
                 <TopNav />
