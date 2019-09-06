@@ -15,6 +15,7 @@ import {
     Select,
     Button,
     DateField,
+    Tabs,
     // LeadParagraph,
     // Paragraph,
     // ListNavigation,
@@ -31,7 +32,7 @@ const SearchScreen = () => {
     useEffect(() => {
         if (values && values !== values) setValues(values);
         // Update the document title using the browser API
-    },[values]);
+    }, [values]);
 
     const handleChange = (event: any) => {
         console.log(values, 'values')
@@ -52,6 +53,24 @@ const SearchScreen = () => {
     }
 
     const data = ['GOV.UK elements option 1', 'GOV.UK elements option 2', 'GOV.UK elements option 3']
+
+
+    const [tabIndex, setTabIndex] = React.useState(1);
+
+    const handleTabChange = (newTabIndex: any) => setTabIndex(newTabIndex);
+
+    const handleClick = ({ e, index }: any) => {
+        return handleTabChange(index);
+    }
+
+    const firstPanel = () => {
+        return (
+            <div>
+                <h1>first panel</h1>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+            </div>
+        )
+    }
 
     return (
         <Main>
@@ -113,6 +132,63 @@ const SearchScreen = () => {
             </GridRow>
             {/* <InputEl hint="For example, crime reference, location or collar number" label="Justification" type="text" name="search" value={input} onChange={(e: any) => setInput(e.target.value)} /> */}
             <Button>Search</Button>
+            <Tabs>
+                <Tabs.Title>Content</Tabs.Title>
+                <Tabs.List>
+                    {[
+                        {
+                            content: 'People',
+                            href: '#first-panel',
+                        },
+                        {
+                            content: 'Organisations',
+                            href: '#second-panel',
+                        },
+                        {
+                            content: 'OCGS',
+                            href: '#third-panel',
+                        },
+                        {
+                            content: 'Vehicles',
+                            href: '#fourth-panel',
+                        },
+                    ].map(({ content, href }, index) => (
+                        <Tabs.Tab
+                            key={index}
+                            onClick={(e: any) => handleClick({ e, index })}
+                            selected={tabIndex === index}
+                            href={href}
+                        >
+                            {content}
+                        </Tabs.Tab>
+                    ))}
+                </Tabs.List>
+                {[
+                    {
+                        content: firstPanel(),
+                        id: 'first-panel',
+                    },
+                    {
+                        content: 'Panel content 2',
+                        id: 'second-panel',
+                    },
+                    {
+                        content: 'Panel content 3',
+                        id: 'third-panel',
+                    },
+                    {
+                        content: 'Panel content 4',
+                        id: 'fourth-panel',
+                    },
+                ].map(({ content, id }, index) => (
+                    <Tabs.Panel
+                        selected={tabIndex === index}
+                        id={id}
+                    >
+                        {content}
+                    </Tabs.Panel>
+                ))}
+            </Tabs>
         </Main>
     )
 }
