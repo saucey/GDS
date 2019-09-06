@@ -103,13 +103,12 @@ const SearchScreen = () => {
                                 year: 'yearInputName',
                             }}>
                         </DateField>
-                    </FormElWrapper>
-                </GridCol>
-                <GridCol setWidth="" style={{ 'border': '1px solid red' }}>
-                    <div style={{'display': 'flex', 'justifyContent': 'flex-start'}}>
                         <OperatorSymbol>+ / -</OperatorSymbol>
                         {/* <div style={{'border': 'border 1px solid red' }}> */}
                         <SelectEl fixed={true} width={'150px'} extraTopSpace={false} data={dataYears} roundedCorners={true} />
+                    </FormElWrapper>
+                </GridCol>
+                <GridCol setWidth="" style={{ 'border': '1px solid red' }}>
                         {/* </div> */}
                         <div>Or</div>
                         <div>
@@ -117,7 +116,6 @@ const SearchScreen = () => {
                         </div>
                         <OperatorSymbol>+ / -</OperatorSymbol>
                         <SelectEl fixed={true} width={'150px'} extraTopSpace={false} data={dataYears} roundedCorners={true} />
-                    </div>
                 </GridCol>
 
             </GridRow>
