@@ -15,14 +15,14 @@ const SelectWrapper = styled.div`
     margin-top: 10px;
 `
 
-const SelectEl = ({ extraTopSpace, hint, label, data }) => {
+const SelectEl = ({...props}) => {
     return (
-        <div style={{'marginTop': extraTopSpace ? '25px' : '0'}}>
-            {label && <LabelEl>{label}</LabelEl>}
-            {hint && <HintEl>{hint}</HintEl>}
-            <SelectWrapper>
-                <Select id="selectEl" name="group1"> 
-                    {data.map((opt, i) =>
+        <div style={{'marginTop': props.extraTopSpace ? '25px' : '0'}}>
+            {props.label && <LabelEl>{props.label}</LabelEl>}
+            {props.hint && <HintEl>{props.hint}</HintEl>}
+            <SelectWrapper style={props.fixed ? {width: props.width} : {}}>
+                <Select id="selectEl" name="group1" className={props.roundedCorners? 'rounded' : ''} > 
+                    {props.data.map((opt, i) =>
                         <option key={i} value={i}>{opt}</option>
                     )}
                 </Select>

@@ -5,5 +5,10 @@ const LabelEl = styled.label`
     font-weight: bold;
 `;
 
+
+export const OperatorSymbol = styled.div`
+    font-size: 1.6em;
+`
+
 export default LabelEl;
 // export {LabelEl}

@@ -38,6 +38,10 @@
   /* border: 3px solid green; */
 }
 
+#selectEl.rounded select {
+  border-radius: 5px;
+}
+
 #inputEl {
   margin-top: 2px;
 

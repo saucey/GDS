@@ -5,6 +5,7 @@ import InputField from '@govuk-react/input-field';
 import FormElWrapper from '../../components/wrappers/form-el-wrapper'
 import InputEl from '../../components/form-elements/input-el'
 import SelectEl from '../../components/form-elements/select-el'
+import OperatorSymbol from '../../components/reuseablestyles'
 
 import {
     Main,
@@ -53,6 +54,7 @@ const SearchScreen = () => {
     }
 
     const data = ['GOV.UK elements option 1', 'GOV.UK elements option 2', 'GOV.UK elements option 3']
+    const dataYears = ['1 year', '2 years', '3 years', '4 years', '5 years']
 
 
     const [tabIndex, setTabIndex] = React.useState(1);
@@ -85,13 +87,13 @@ const SearchScreen = () => {
                 </GridCol>
                 <GridCol setWidth="one-half">
                     <FormElWrapper>
-                        <SelectEl extraTopSpace={true} hint="" label="Reason for you search" data={data} />
+                        <SelectEl extraTopSpace={true} label="Reason for you search" data={data} />
                     </FormElWrapper>
                     {/* <Input value={email} onChange={(e: any) => setEmail(e.target.value)} /> */}
                 </GridCol>
             </GridRow>
             <GridRow>
-                <GridCol setWidth="one-half">
+                <GridCol style={{ 'border': '1px solid red' }}>
                     <FormElWrapper>
                         <DateField
                             onChange={(e: any) => handleChange(e)}
@@ -103,11 +105,26 @@ const SearchScreen = () => {
                         </DateField>
                     </FormElWrapper>
                 </GridCol>
+                <GridCol setWidth="" style={{ 'border': '1px solid red' }}>
+                    <div style={{'display': 'flex', 'justifyContent': 'flex-start'}}>
+                        <OperatorSymbol>+ / -</OperatorSymbol>
+                        {/* <div style={{'border': 'border 1px solid red' }}> */}
+                        <SelectEl fixed={true} width={'150px'} extraTopSpace={false} data={dataYears} roundedCorners={true} />
+                        {/* </div> */}
+                        <div>Or</div>
+                        <div>
+                            <InputEl hint="" label="Age" />
+                        </div>
+                        <OperatorSymbol>+ / -</OperatorSymbol>
+                        <SelectEl fixed={true} width={'150px'} extraTopSpace={false} data={dataYears} roundedCorners={true} />
+                    </div>
+                </GridCol>
+
             </GridRow>
             <GridRow>
                 <GridCol setWidth="one-third">
                     <FormElWrapper>
-                        <SelectEl extraTopSpace={false} hint="" label="Unique ID" data={data} />
+                        <SelectEl extraTopSpace={false} label="Unique ID" data={data} />
                     </FormElWrapper>
                 </GridCol>
                 <GridCol setWidth="one-third">
@@ -119,14 +136,14 @@ const SearchScreen = () => {
             <GridRow>
                 <GridCol setWidth="one-third">
                     <FormElWrapper>
-                        <SelectEl extraTopSpace={false} hint="" label="Sex" data={data} />
+                        <SelectEl extraTopSpace={false} label="Sex" data={data} />
                     </FormElWrapper>
                 </GridCol>
             </GridRow>
             <GridRow>
                 <GridCol setWidth="one-third">
                     <FormElWrapper>
-                        <SelectEl hint="" label="Ethnicity" extraTopSpace={false} data={data} />
+                        <SelectEl label="Ethnicity" extraTopSpace={false} data={data} />
                     </FormElWrapper>
                 </GridCol>
             </GridRow>
