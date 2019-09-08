@@ -3,7 +3,7 @@ import {
     Select,
 } from 'govuk-react';
 import styled from 'styled-components'
-import LabelEl from '../reuseablestyles'
+import {LabelEl} from '../reuseablestyles'
 
 const HintEl = styled.label`
     font-size: 19px;
@@ -15,7 +15,7 @@ const SelectWrapper = styled.div`
     margin-top: 10px;
 `
 
-const SelectEl = ({...props}) => {
+const SelectEl = (...props) => {
     return (
         <div style={{'marginTop': props.extraTopSpace ? '25px' : '0'}}>
             {props.label && <LabelEl>{props.label}</LabelEl>}

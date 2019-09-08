@@ -44,5 +44,11 @@
 
 #inputEl {
   margin-top: 2px;
+}
 
+.clear:after {
+  content: "";
+  clear: both;
+  display: table;
+  border: '1px solid green'
 }

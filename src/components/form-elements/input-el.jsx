@@ -5,7 +5,7 @@ import {
 } from 'govuk-react';
 import styled from 'styled-components'
 
-import LabelEl from '../reuseablestyles'
+import {LabelEl} from '../reuseablestyles'
 
 const HintEl = styled.label`
     font-size: 19px;
@@ -18,7 +18,7 @@ const InputWrapper = styled.div`
 `
 
 const InputEl = ({hint, label, ...inputProps }) => {
-
+    console.log(inputProps, 'the props input');
     return (
         <div>
             {label && <LabelEl>{label}</LabelEl>}

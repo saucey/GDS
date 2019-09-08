@@ -1,14 +1,21 @@
 import styled from 'styled-components'
 
 const LabelEl = styled.label`
-    font-size: 19px;
-    font-weight: bold;
+font-size: 19px;
+font-weight: bold;
 `;
 
 
-export const OperatorSymbol = styled.div`
-    font-size: 1.6em;
-`
+const OperatorSymbol = styled.div`
+font-size: 1.6em;
+float: left;
+`;
 
-export default LabelEl;
+
+export {
+    OperatorSymbol, LabelEl
+};
+
+// export {LabelEl, OperatorSymbol };
 // export {LabelEl}
+//random

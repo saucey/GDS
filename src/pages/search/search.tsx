@@ -5,7 +5,8 @@ import InputField from '@govuk-react/input-field';
 import FormElWrapper from '../../components/wrappers/form-el-wrapper'
 import InputEl from '../../components/form-elements/input-el'
 import SelectEl from '../../components/form-elements/select-el'
-import OperatorSymbol from '../../components/reuseablestyles'
+
+import { OperatorSymbol, LabelEl } from '../../components/reuseablestyles'
 
 import {
     Main,
@@ -42,6 +43,10 @@ const SearchScreen = () => {
         console.log(values, 'the values after the set values')
     };
 
+    const submitForm = () => {
+        console.log(values, 'submit forms')
+    }
+
     console.log(email, 'the state of the email text')
     console.log(input, 'the input from the reusable component')
 
@@ -55,7 +60,6 @@ const SearchScreen = () => {
 
     const data = ['GOV.UK elements option 1', 'GOV.UK elements option 2', 'GOV.UK elements option 3']
     const dataYears = ['1 year', '2 years', '3 years', '4 years', '5 years']
-
 
     const [tabIndex, setTabIndex] = React.useState(1);
 
@@ -95,29 +99,37 @@ const SearchScreen = () => {
             <GridRow>
                 <GridCol style={{ 'border': '1px solid red' }}>
                     <FormElWrapper>
-                        <DateField
-                            onChange={(e: any) => handleChange(e)}
-                            inputNames={{
-                                day: 'dayInputName',
-                                month: 'monthInputName',
-                                year: 'yearInputName',
-                            }}>
-                        </DateField>
-                        <OperatorSymbol>+ / -</OperatorSymbol>
-                        {/* <div style={{'border': 'border 1px solid red' }}> */}
-                        <SelectEl fixed={true} width={'150px'} extraTopSpace={false} data={dataYears} roundedCorners={true} />
+                        <div style={{'border': '1px solid red', 'float': 'left'}}>
+                        <LabelEl>Date of birth</LabelEl>
+                            <DateField
+                                onChange={(e: any) => handleChange(e)}
+                                inputNames={{
+                                    day: 'dayInputName',
+                                    month: 'monthInputName',
+                                    year: 'yearInputName',
+                                }}>
+                            </DateField>
+                        </div>  
+                        <div style={{'float': 'left'}}>
+                            <div style={{ 'content': "", 'clear': 'both', 'display': 'table', 'border': '1px solid green'}}>
+                                <OperatorSymbol>+ / -</OperatorSymbol>
+                                {/* <div style={{'border': 'border 1px solid red' }}> */}
+                                <div style={{float: 'left'}}>
+                                    <SelectEl fixed={true} width={'125px'} extraTopSpace={false} data={dataYears} roundedCorners={true} />    
+                                </div>
+                            </div>
+                        </div>
                     </FormElWrapper>
                 </GridCol>
-                <GridCol setWidth="" style={{ 'border': '1px solid red' }}>
+                <GridCol setWidth="" style={{ 'border': '1px solid blue' }}>
                         {/* </div> */}
-                        <div>Or</div>
+                        <LabelEl>Or</LabelEl>
                         <div>
-                            <InputEl hint="" label="Age" />
+                            <InputEl fixed={true} width={'150px'} hint="" label="Age" />
                         </div>
                         <OperatorSymbol>+ / -</OperatorSymbol>
                         <SelectEl fixed={true} width={'150px'} extraTopSpace={false} data={dataYears} roundedCorners={true} />
                 </GridCol>
-
             </GridRow>
             <GridRow>
                 <GridCol setWidth="one-third">
@@ -146,7 +158,7 @@ const SearchScreen = () => {
                 </GridCol>
             </GridRow>
             {/* <InputEl hint="For example, crime reference, location or collar number" label="Justification" type="text" name="search" value={input} onChange={(e: any) => setInput(e.target.value)} /> */}
-            <Button>Search</Button>
+            <Button onClick={submitForm}>Search</Button>
             <Tabs>
                 <Tabs.Title>Content</Tabs.Title>
                 <Tabs.List>
