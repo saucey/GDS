@@ -15,7 +15,7 @@ const SelectWrapper = styled.div`
     margin-top: 10px;
 `
 
-const SelectEl = (...props) => {
+const SelectEl = ({...props}) => {
     return (
         <div style={{'marginTop': props.extraTopSpace ? '25px' : '0'}}>
             {props.label && <LabelEl>{props.label}</LabelEl>}

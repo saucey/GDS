@@ -5,8 +5,9 @@ import InputField from '@govuk-react/input-field';
 import FormElWrapper from '../../components/wrappers/form-el-wrapper'
 import InputEl from '../../components/form-elements/input-el'
 import SelectEl from '../../components/form-elements/select-el'
-
 import { OperatorSymbol, LabelEl } from '../../components/reuseablestyles'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 import {
     Main,
@@ -72,8 +73,10 @@ const SearchScreen = () => {
     const firstPanel = () => {
         return (
             <div>
+                <FontAwesomeIcon icon={faCoffee} />
                 <h1>first panel</h1>
                 <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                <FontAwesomeIcon icon={faCoffee} />
             </div>
         )
     }
